@@ -1,0 +1,70 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="box">
+                        <div class="box-body">
+                          <div class="container">
+                            <div class="col-md-6">
+                              <table class="table table-bordered table-striped col-md-6">
+                                <thead>
+                                  <tr>
+                                    <th>Field Name</th>
+                                    <td>Field Value</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th>Manufacturer Industry</th>
+                                    <td>{{foundManufacturer.industry}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Manufacturer URL</th>
+                                    <td><a href="https://{{foundManufacturer.URL}}">{{foundManufacturer.URL}}</a></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Manufacturer Support URL</th>
+                                    <td><a href="https://{{foundManufacturer.URL}}">{{foundManufacturer.supportURL}}</a></td>
+                                  </tr>
+                                  <tr>
+                                    <th>Manufacturer Contact Email</th>
+                                    <td><a href="mailto:{{foundManufacturer.contactEmail}}" target="_top">{{foundManufacturer.contactEmail}}</a></td>
+                                  </tr>
+                                  <tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.box-body -->
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+  
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+{% endblock %}

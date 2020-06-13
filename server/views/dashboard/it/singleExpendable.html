@@ -1,0 +1,106 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Expendable</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+          <div class="box">
+            <div class="box-body">
+              {% if !foundExpendable %}
+               <h1>Invalid Expendable ID!</h1>
+               <p>Go back to expendable list page <a href="/dashboard/it/expendable">here</a></p>
+              {% endif %}
+              {% if foundExpendable %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundExpendable.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundExpendable.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Category</th>
+                        <td>{{foundExpendable.category}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundExpendable.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Bought</th>
+                        <td>{{foundExpendable.bought}}</td>
+                      </tr>
+                      <tr>
+                        <th>PO Number</th>
+                        <td>{{foundExpendable.ponumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Quantity</th>
+                        <td>{{foundExpendable.quantity}}</td>
+                      </tr>
+                      <tr>
+                        <th>Lower Limit</th>
+                        <td>{{foundExpendable.lowerLimit}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundExpendable.notes}}</td>
+                      </tr>
+                      <tr>
+                        <th>Add Units</th>
+                      <td>
+                        <form id="checkout-form" action="/dashboard/it/expendable/{{expendableID}}" method="POST" style="display:inline;">
+                          <input type="number" id="order" name="order" placeholder=" # of Units">
+                          <button type="submit" class="btn btn-warning">Check Out <i class="fa fa-plus-square"></i></button>
+                        </form>
+                      </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              
+            </div>
+            <!-- /.box-body -->
+          </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

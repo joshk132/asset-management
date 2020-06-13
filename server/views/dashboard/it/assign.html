@@ -1,0 +1,70 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Assign Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                {% include "../../partials/flash.html" %}
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                        <div class="col-md-6 col-md-offset-2">
+                            <form role="form-inline"action="/dashboard/it/assign" method="POST">
+                            <div class="box-body">
+                                <div class="form-group" id="subuser">
+                                    <label for="subuser"  class="control-label">User</label>
+                                    <select class="form-control selectpicker" title="User" name="subuser" data-live-search="true">
+                                        {%  for subuser in subusers  %}
+                                            <option value="{{ subuser.id }}">{{ subuser.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div><!-- User Select -->
+                                <div class="form-group">
+                                    <label for="subuser"  class="control-label">Asset</label>
+                                    <select class="form-control selectpicker" title="Asset" name="asset" data-live-search="true">
+                                        {%  for asset in assets  %}
+                                            <option value="{{ asset.id }}">{{ asset.model }} | {{ prefix }}{{ asset.assetNumber }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div><!-- Asset -->
+                                <div class="form-group">
+                                    <label for="subuser"  class="control-label">Check Out Date</label>
+                                    <input type="date" class="form-control" id="checkoutDate" name="checkoutDate" placeholder="Check out Date">
+                                </div><!-- Check out -->
+                                <div class="form-group">
+                                    <label for="notes">Notes</label>
+                                    <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                                </div><!-- Notes -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                        <div><br><br><br><br><br></div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

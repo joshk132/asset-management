@@ -1,0 +1,165 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Settings</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <br>
+              {% include "../partials/flash.html" %}
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <br>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/notifications">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-bell-o"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Notifications</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/barcodes">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-barcode"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Barcodes</span>
+                            <span class="info-box-text">Code128 only</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/labels">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-tags"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Labels</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/ldap">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-blue"><i class="fa fa-users"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">LDAP</span>
+                            <span class="info-box-text">Coming Soon..</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <br>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/profile">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-user-o"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Profile</span>
+                            
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/billing">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-credit-card"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Billing</span>
+                            
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/security">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-lock"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Security</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/backups">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-blue"><i class="fa fa-download"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Backups</span>
+                            <span class="info-box-text">Coming Soon..</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/assetNumber">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-yellow"><i class="fa fa-sort-numeric-asc"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Asset Numbers</span>
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      <div class="col-md-3 col-sm-6 col-xs-12">
+                        <a href="/dashboard/settings/deleteAccount">
+                          <div class="info-box">
+                          <span class="info-box-icon bg-red"><i class="fa fa-trash-o"></i></span>
+                          <div class="info-box-content">
+                            <span class="info-box-number">Delete Account</span>
+                            
+                          </div>
+                          <!-- /.info-box-content -->
+                        </div>
+                        </a>
+                        <!-- /.info-box -->
+                      </div>
+                      
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

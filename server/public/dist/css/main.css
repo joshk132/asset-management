@@ -1,0 +1,116 @@
+textarea { resize:none; }
+
+.readonlywhite, .form-control, .form-group{
+    background-color: #fff !important;
+}
+
+#aps {
+  display: none;
+}
+
+#cables {
+  display: none;
+}
+
+#deskPhones {
+  display: none;
+}
+
+#desktops {
+  display: none;
+}
+
+#laptops {
+  display: none;
+}
+
+#mobilePhones {
+  display: none;
+}
+
+#monitors {
+  display: none;
+}
+
+#printers {
+  display: none;
+}
+
+#projectors {
+  display: none;
+}
+
+#routers {
+  display: none;
+}
+
+#servers {
+  display: none;
+}
+
+#switches {
+  display: none;
+}
+
+#tablets {
+  display: none;
+}
+
+#other {
+  display: none;
+}
+
+#statusOutput {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .white-bg {
+    margin-left: 225px; 
+  }
+}
+.white-bg {
+    background-color: white;
+  }
+  
+.moveright {
+  margin-left: 15px;
+}
+
+/*@media print {*/
+/*  body * {*/
+/*    visibility: hidden;*/
+/*  }*/
+/*  #section-to-print, #section-to-print * {*/
+/*    visibility: visible;*/
+/*  }*/
+/*  #section-to-print {*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+/*  }*/
+/*}*/
+
+.ReportTitlePosition {
+    position: absolute;
+    top: 50px;
+    right: 40%;
+    width: 100px;
+    height: 100px;
+}
+
+.reportAssigned {
+    position: absolute;
+    top: -120px;
+    /*right: 40%;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+}
+
+.reportAsset {
+    position: absolute;
+    top: -260px;
+    /*right: 40%;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+}

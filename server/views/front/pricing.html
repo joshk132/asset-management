@@ -1,0 +1,180 @@
+{% extends '../layouts/frontsub.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+        <!-- ========== PAGE TITLE ========== -->
+        <header class="header page-title" >
+            <div class="container">
+                <!-- For centering the content vertically -->
+                <div class="outer">
+                    <div class="inner text-center">
+                        <h1 class="">Pricing</h1>
+                        <h5 class="">It's less than 1 cup of coffee per day.</h5>
+                        <a href="/signup" class="btn se-btn-black btn-rounded mt20">Create Account</a>
+                    </div> <!-- end inner -->
+                </div> <!-- end outer -->
+            </div> <!-- end container -->
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col-md-4 selectCenter">
+                    <br>
+                    <input type="checkbox" checked  id="toggle" data-toggle="toggle" data-on="Monthly" data-off="Annual" data-style="ios" data-onstyle="primary" data-offstyle="primary" onchange="toggle()">
+                </div>
+            </div>
+        </div>
+        <style>
+            @media screen and (max-width: 576px){
+                .selectCenter {
+                    margin-left:25%;
+                }
+            }
+            .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+            .toggle.ios .toggle-handle { border-radius: 20px; }
+        </style>
+
+        <!-- ========== PRICING ========== -->
+        <section class="se-section" id="pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" id="silver-down">
+                        <div class="se-plan">
+                            <div class="plan-header">
+                                <h2>Silver Plan</h2>
+                                <span id="silver">FREE
+                            </div> <!-- end plan-header -->
+                            <div class="plan-features">
+                                <ul>
+                                    <li>Up to 25 assets</li>
+                                    <li>5 users</li>
+                                    <li>Unlimited models</li>
+                                    <li>Quick search</li>
+                                    <li>24/7 availability</li>
+                                    <li><a href="/signup/silver" class="btn se-btn-black btn-rounded mt20 btn-center">Create Account</a></li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+<style type="text/css">
+    #silver-down {
+        margin-bottom:45px;
+    }
+    /*.btn-center {*/
+    /*    margin-left: 17%;*/
+    /*}*/
+</style>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="se-plan plan-popular">
+                            <div class="plan-header">
+                                <h2>Gold Plan</h2>
+                                <span id="gold">$9.99 <small>/mo</small></span>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                    <li>Everything in Silver <i class="icon ion-plus"></i></li>
+                                    <li>200 assets</li>
+                                    <li>50 users</li>
+                                    <li>100 software licenses</li>
+                                    <li>Priority email support</li>
+                                    <li><a href="/signup/gold" class="btn se-btn-black btn-rounded mt20 btn-center">Create Account</a></li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="se-plan">
+                            <div class="plan-header">
+                                <h2>Platinum Plan</h2>
+                                <span id="platinum">$19.99 <small>/mo</small></span>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                    <li>Everything in Gold <i class="icon ion-plus"></i></li>
+                                    <li>500 assets</li>
+                                    <li>150 users</li>
+                                    <li>Reports</li>
+                                    <li>Direct chat support</li>
+                                    <li><a href="/signup/platinum" class="btn se-btn-black btn-rounded mt20 btn-center">Create Account</a></li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+                    
+                    <div class="col-md-3 col-sm-6">
+                        <div class="se-plan">
+                            <div class="plan-header">
+                                <h2>Enterprise Plan</h2>
+                                <span id="enterprise">Contact for details</span>
+                            </div> <!-- end plan-header -->
+
+                            <div class="plan-features">
+                                <ul>
+                                    <li>Everything in Platinum <i class="icon ion-plus"></i></li>
+                                    <li>Unlimited assets</li>
+                                    <li>Unlimited users</li>
+                                    <li>Daily backups</li>
+                                    <li>Searchable database</li>
+                                    <li><a href="/signup/enterprise" class="btn se-btn-black btn-rounded mt20 btn-center">Create Account</a></li>
+                                </ul>
+                            </div> <!-- end plan-features -->
+                        </div> <!-- end se-plan -->
+                    </div> <!-- end col-md-4 -->
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+        
+        <!-- ========== PRICING ANNUALLY ========== -->
+        
+
+        <!-- ========== FAQ SECTION ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">Can I upgrade from one package to another?</h6>
+                        <p>Upgrading from one package to another can be done with just 2 easy clicks.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">Can I pay yearly?</h6>
+                        <p>Currently this is something our dashboard doesn't support but if you <a href="/contact">contact</a> us we can manually change your plan to annual.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">Can I cancel anytime?</h6>
+                        <p>
+                            Yes we believe our product speaks for itself and that you should be free to go anytime you are unhappy. Though we can't see that happening and welcome you to provide 
+                            feedback and feature requests as we work to make our product further above everyone else.
+                        </p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">How long before I can start using Phantom Asset Management?</h6>
+                        <p>
+                            You can start right away! Once you sign up you are taken to your dashboard and from there can choose what to do. If you require help you can visit out our 
+                            <a href="/docs">docs</a> or your welcome email for our three most important tips.
+                        </p>
+                    </div> <!-- end se-faq -->
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+
+        <section class="primary-bg">
+		<div class="container">
+		    <div class="row text-center">
+			    <h3>Start Tracking Your Assets Now!</h3>
+			    <p>Join today, no credit card required.</p> <a href="/signup" class="btn se-btn-black btn-rounded">SIGN UP</a>
+			    <br><br>
+		    </div>
+		</div>
+	</section>
+
+        {% endblock %}

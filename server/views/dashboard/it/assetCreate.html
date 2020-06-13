@@ -1,0 +1,161 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                        <form role="form-inline"action="/dashboard/it/asset/new" method="POST">
+                            <div class="box-body">
+                              <div class="form-group tour-step tour-step-twelve" id="model">
+                                <label for="model"  class="control-label">Model</label>
+                                <select class="form-control selectpicker" title="Model" name="model" data-live-search="true">
+                                  {%  for ap in aps  %}
+                                    <option value="{{ap.name}}">{{ap.name}}</option>
+                                  {% endfor %}
+                                  {%  for cable in cables  %}
+                                    <option value="{{cable.name}}">{{cable.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for deskPhone in deskPhones  %}
+                                    <option value="{{deskPhone.name}}">{{deskPhone.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for desktop in desktops  %}
+                                    <option value="{{desktop.name}}">{{desktop.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for laptop in laptops  %}
+                                    <option value="{{laptop.name}}">{{laptop.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for mobilephone in mobilephones  %}
+                                    <option value="{{mobilephone.name}}">{{mobilephone.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for monitor in monitors  %}
+                                    <option value="{{monitor.name}}">{{monitor.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for printer in printers  %}
+                                    <option value="{{printer.name}}">{{printer.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for projector in projectors  %}
+                                    <option value="{{projector.name}}">{{projector.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for router in routers  %}
+                                    <option value="{{router.name}}">{{router.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for server in servers  %}
+                                    <option value="{{server.name}}">{{server.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for switcht in switches  %}<!-- Called switcht because of reserved word -->
+                                    <option value="{{switcht.name}}">{{switcht.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for tablet in tablets  %}
+                                    <option value="{{tablet.name}}">{{tablet.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for custom in customs  %}
+                                    <option value="{{custom.name}}">{{custom.name}}</option>
+                                  {% endfor %}
+                                  
+                                </select>
+                              </div><!-- Model -->
+                              <div class="form-group tour-step tour-step-thirteen" id="assetNumberdiv">
+                              <label for="assetNumber" class="control-label">Asset Number</label><!--<small>(If no asset number shown refresh page to create number)</small>-->
+                                <input type="text" class="form-control" id="assetNumber" name="assetNumber"  value= "{{ assetCount }}" >
+                              </div><!-- Asset Number -->
+                              <div class="form-group" id="statusDiv">
+                                <label for="status"  class="control-label">Status</label>
+                                <div class="form-group">
+                                  <select class="form-control selectpicker" title="Status" name="status" id="status" onchange="deployPicker()">
+                                    <option value="Ready">Ready to Deploy</option>
+                                    <option value="Pending">Deploy Pending</option>
+                                    <option value="Order">On Order</option>
+                                    <option value="Out">Out On Service</option>
+                                    <option value="Missing">Missing</option>
+                                    <option value="Broken">Broken</option>
+                                  </select>
+                                </div>
+                              </div><!-- status -->
+                              <div id="statusOutput">
+                                <div class="form-group" id="subuser">
+                                  <label for="subuser"  class="control-label">User</label>
+                                  <select class="form-control selectpicker" title="User" name="subuser" data-live-search="true">
+                                    {%  for subuser in subusers  %}
+                                      <option value="{{ subuser.name }}">{{ subuser.name }}</option>
+                                    {% endfor %}
+                                  </select>
+                                </div><!-- User Select -->
+                                <div class="form-group">
+                                    <label for="checkoutDate"  class="control-label">Check Out Date</label>
+                                    <input type="date" class="form-control" id="checkoutDate" name="checkoutDate" placeholder="Check out Date">
+                                </div><!-- Check out -->
+                              </div>
+                              <div class="form-group">
+                                <label for="serial" class="control-label">Serial Number</label>
+                                <input type="text" class="form-control" id="serial" name="serial" placeholder="Serial Number">
+                              </div><!-- Serial Number-->
+                              <div class="form-group">
+                                <label for="bought" class="control-label">Date Bought</label>
+                                <input placeholder="Date Bought" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="bought" name="bought">
+                              </div><!-- Date Bought -->
+                              <div class="form-group">
+                                <label for="warranty" class="control-label">Warranty Length</label>
+                                <input id="warranty" type="number" class="form-control" name="warranty" placeholder="Warranty in Months">
+                              </div>
+                              <div class="form-group">
+                                <label for="method" class="control-label">Method of Disposal</label>
+                                <select class="form-control selectpicker" title="Method of Disposal" name="method">
+                                      <option value="Simple disposal">Simple disposal</option>
+                                      <option value="Disposal with cash proceeds">Disposal with cash proceeds</option>
+                                      <option value="Disposal with trade-in">Disposal with trade-in</option>
+                                      <option value="Disposal with cash proceeds and trade-in">Disposal with cash proceeds and trade-in</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="notes">Notes</label>
+                                <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                              </div><!-- Notes -->
+                              <div class="box-footer">
+                                <button type="submit" class="btn btn-primary tour-step tour-step-fourteen">Submit</button>
+                              </div>
+                            </div>
+                        </form>
+                        <div><br><br><br></div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Update Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                        <form role="form-inline"action="/dashboard/it/asset/update/{{ assetID }}?_method=PUT" method="POST">
+                            <div class="box-body">
+                              <div class="form-group tour-step tour-step-twelve" id="model">
+                                <label for="model"  class="control-label">Model</label>
+                                <select class="form-control selectpicker"  name="model" data-live-search="true">
+                                  <option value="{{ foundAsset.model }}" selected>{{ foundAsset.model }}</option>
+                                  {%  for ap in aps  %}
+                                    <option value="{{ap.name}}">{{ap.name}}</option>
+                                  {% endfor %}
+                                  {%  for cable in cables  %}
+                                    <option value="{{cable.name}}">{{cable.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for deskPhone in deskPhones  %}
+                                    <option value="{{deskPhone.name}}">{{deskPhone.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for desktop in desktops  %}
+                                    <option value="{{desktop.name}}">{{desktop.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for laptop in laptops  %}
+                                    <option value="{{laptop.name}}">{{laptop.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for mobilephone in mobilephones  %}
+                                    <option value="{{mobilephone.name}}">{{mobilephone.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for monitor in monitors  %}
+                                    <option value="{{monitor.name}}">{{monitor.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for printer in printers  %}
+                                    <option value="{{printer.name}}">{{printer.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for projector in projectors  %}
+                                    <option value="{{projector.name}}">{{projector.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for router in routers  %}
+                                    <option value="{{router.name}}">{{router.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for server in servers  %}
+                                    <option value="{{server.name}}">{{server.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for switcht in switches  %}<!-- Called switcht because of reserved word -->
+                                    <option value="{{switcht.name}}">{{switcht.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for tablet in tablets  %}
+                                    <option value="{{tablet.name}}">{{tablet.name}}</option>
+                                  {% endfor %}
+                                  
+                                  {%  for custom in customs  %}
+                                    <option value="{{custom.name}}">{{custom.name}}</option>
+                                  {% endfor %}
+                                  
+                                </select>
+                              </div><!-- Model -->
+                              <div class="form-group tour-step tour-step-thirteen" id="assetNumberdiv">
+                              <label for="assetNumber" class="control-label">Asset Number</label><!--<small>(If no asset number shown refresh page to create number)</small>-->
+                                <input type="text" class="form-control" id="assetNumber" name="assetNumber"  value= "{{ foundAsset.assetNumber }}" >
+                              </div><!-- Asset Number -->
+                              <div class="form-group" id="statusDiv">
+                                <label for="status"  class="control-label">Status</label>
+                                <div class="form-group">
+                                  <select class="form-control selectpicker" name="status" id="status" onchange="deployPicker()">
+                                    <option value="{{ foundAsset.status}} ">{{ foundAsset.status}}</option>
+                                    <option value="Ready">Ready to Deploy</option>
+                                    <option value="Pending">Delpoy Pending</option>
+                                    <option value="Order">On Order</option>
+                                    <option value="Out">Out On Service</option>
+                                    <option value="Missing">Missing</option>
+                                    <option value="Broken">Broken</option>
+                                  </select>
+                                </div>
+                              </div><!-- status -->
+                              <div class="form-group">
+                                <label for="serial" class="control-label">Serial Number</label>
+                                <input type="text" class="form-control" id="serial" name="serial" value="{{ foundAsset.serial }}">
+                              </div><!-- Serial Number-->
+                              <div class="form-group">
+                                <label for="bought" class="control-label">Date Bought</label>
+                                <input value="{{ foundAsset.bought }}" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="bought" name="bought">
+                              </div><!-- Date Bought -->
+                              <div class="form-group">
+                                <label for="warranty" class="control-label">Warranty Length</label>
+                                <input id="warranty" type="number" class="form-control" name="warranty" value="{{ foundAsset.warranty }}">
+                              </div>
+                              <div class="form-group">
+                                <label for="method" class="control-label">Method of Disposal</label>
+                                <select class="form-control selectpicker" name="method">
+                                      <option value="{{ foundAsset.method }}">{{ foundAsset.method }}</option>
+                                      <option value="Simple disposal">Simple disposal</option>
+                                      <option value="Disposal with cash proceeds">Disposal with cash proceeds</option>
+                                      <option value="Disposal with trade-in">Disposal with trade-in</option>
+                                      <option value="Disposal with cash proceeds and trade-in">Disposal with cash proceeds and trade-in</option>
+                                  </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="notes">Notes</label>
+                                <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                              </div><!-- Notes -->
+                              <div class="box-footer">
+                                <button type="submit" class="btn btn-primary tour-step tour-step-fourteen">Submit</button>
+                              </div>
+                            </div>
+                        </form>
+                        <div><br><br><br></div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+    
+  </div>
+</div>
+
+{% endblock %}

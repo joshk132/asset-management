@@ -1,0 +1,89 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Software License</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                        {% include "../../partials/flash.html" %}
+                      <form role="form-inline"action="/dashboard/it/license/new" method="POST">
+                        <div class="box-body">
+                            <div class="form-group">
+                              <label for="name" class="control-label">Software Name</label>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Software Name">
+                            </div><!-- Software Name -->
+                            <div class="form-group">
+                              <label for="productKey" class="control-label">Product Key</label>
+                              <input type="text" class="form-control" id="productKey" name="productKey" placeholder="Product Key">
+                            </div><!-- Product Key -->
+                            <div class="form-group">
+                              <label for="creator" class="control-label">Creator</label>
+                              <input type="text" class="form-control" id="creator" name="creator" placeholder="Creator">
+                            </div><!-- Creator -->
+                            <div class="form-group" id="subuser">
+                              <label for="licensedtoPerson" class="control-label">Licensed to Person</label>
+                              <select class="form-control selectpicker" title="Licensed to Person" name="licensedtoPerson" data-live-search="true">
+                                {%  for subuser in subusers  %}
+                                  <option value="{{ subuser.name }}">{{ subuser.name }}</option>
+                                {% endfor %}
+                              </select>
+                            </div><!-- License to person -->
+                            <div class="form-group">
+                              <label for="licensedtoEmail" class="control-label">Licensed to Email</label>
+                              <input type="text" class="form-control" id="licensedtoEmail" name="licensedtoEmail" placeholder="Licensed to Email">
+                            </div><!-- Licensed to email -->
+                            <div class="form-group">
+                              <label for="cost" class="control-label">Cost</label>
+                              <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost in USD">
+                            </div><!-- Cost -->
+                            <div class="form-group">
+                              <label for="bought" class="control-label">Date Bought</label>
+                              <input placeholder="Date Bought" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="bought" name="bought">
+                            </div><!-- Date Bought -->
+                            <div class="form-group">
+                              <label for="expiration" class="control-label">License Length</label>
+                              <input placeholder="License Length in Months" class="textbox-n form-control" type="number"  id="expiration" name="expiration">
+                            </div><!-- Expiration Date -->
+                            <div class="form-group">
+                              <label for="ponumber" class="control-label">Purchase Order Number</label>
+                              <input type="text" class="form-control" id="ponumber" name="ponumber" placeholder="PO Number">
+                            </div><!-- PO Number -->
+                            <div class="form-group">
+                              <label for="notes">Notes</label>
+                              <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                              </div><!-- Notes -->
+                        </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+
+  </div>
+</div>
+
+{% endblock %}

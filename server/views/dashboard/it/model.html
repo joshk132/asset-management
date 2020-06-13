@@ -1,0 +1,293 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Assets Models</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <div class="box">
+                            <div class="box-body">
+                              <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                  <th>Model Name</th>
+                                  <th>Manufacturer</th>
+                                  <th>Product Model</th>
+                                  <th>Type</th>
+                                  <th>Notes</th>
+                                  <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                
+                                {%  for ap in aps  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{ap.id}}">{{ap.name}}</a></td>
+                                    <!--<td{{ap.name}}</td>-->
+                                    <td>{{ap.manufacturer}}</td>
+                                    <td>{{ap.model}}</td>
+                                    <td>{{ap.type}}</td>
+                                    <td>{{ap.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{ap.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for cable in cables  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{cable.id}}">{{cable.name}}</a></td>
+                                    <!--<td>{{cable.name}}</td>-->
+                                    <td>N/A</td>
+                                    <td>N/A</td>
+                                    <td>{{cable.type}}</td>
+                                    <td>{{cable.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{cable.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for deskPhone in deskPhones  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{deskPhone.id}}">{{deskPhone.name}}</a></td>
+                                    <!--<td>{{deskPhone.name}}</td>-->
+                                    <td>{{deskPhone.manufacturer}}</td>
+                                    <td>{{deskPhone.model}}</td>
+                                    <td>{{deskPhone.type}}</td>
+                                    <td>{{deskPhone.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{deskPhone.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for desktop in desktops  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{desktop.id}}">{{desktop.name}}</a></td>
+                                    <!--<td>{{desktop.name}}</td>-->
+                                    <td>{{desktop.manufacturer}}</td>
+                                    <td>{{desktop.model}}</td>
+                                    <td>{{desktop.type}}</td>
+                                    <td>{{desktop.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{desktop.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for laptop in laptops  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{laptop.id}}">{{laptop.name}}</a></td>
+                                    <!--<td>{{laptop.name}}</td>-->
+                                    <td>{{laptop.manufacturer}}</td>
+                                    <td>{{laptop.model}}</td>
+                                    <td>{{laptop.type}}</td>
+                                    <td>{{laptop.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{laptop.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for mobilephone in mobilephones  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{mobilephone.id}}">{{mobilephone.name}}</a></td>
+                                    <!--<td>{{mobilephone.name}}</td>-->
+                                    <td>{{mobilephone.manufacturer}}</td>
+                                    <td>{{mobilephone.model}}</td>
+                                    <td>{{mobilephone.type}}</td>
+                                    <td>{{mobilephone.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{mobilephone.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for monitor in monitors  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{monitor.id}}">{{monitor.name}}</a></td>
+                                    <!--<td>{{monitor.name}}</td>-->
+                                    <td>{{monitor.manufacturer}}</td>
+                                    <td>{{monitor.model}}</td>
+                                    <td>{{monitor.type}}</td>
+                                    <td>{{monitor.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{monitor.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for printer in printers  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{printer.id}}">{{printer.name}}</a></td>
+                                    <!--<td>{{printer.name}}</td>-->
+                                    <td>{{printer.manufacturer}}</td>
+                                    <td>{{printer.model}}</td>
+                                    <td>{{printer.type}}</td>
+                                    <td>{{printer.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{printer.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for projector in projectors  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{projector.id}}">{{projector.name}}</a></td>
+                                    <!--<td>{{projector.name}}</td>-->
+                                    <td>{{projector.manufacturer}}</td>
+                                    <td>{{projector.model}}</td>
+                                    <td>{{projector.type}}</td>
+                                    <td>{{projector.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{projector.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for router in routers  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{router.id}}">{{router.name}}</a></td>
+                                    <!--<td>{{router.name}}</td>-->
+                                    <td>{{router.manufacturer}}</td>
+                                    <td>{{router.model}}</td>
+                                    <td>{{router.type}}</td>
+                                    <td>{{router.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{router.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                <!-- Called switcht because of reserved word -->
+                                {%  for switcht in switches  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{switcht.id}}">{{switcht.name}}</a></td>
+                                    <!--<td>{{switcht.name}}</td>-->
+                                    <td>{{switcht.manufacturer}}</td>
+                                    <td>{{switcht.model}}</td>
+                                    <td>{{switcht.type}}</td>
+                                    <td>{{switcht.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{switcht.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for server in servers  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{server.id}}">{{server.name}}</a></td>
+                                    <td>{{server.manufacturer}}</td>
+                                    <td>{{server.model}}</td>
+                                    <td>{{server.type}}</td>
+                                    <td>{{server.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{switcht.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for tablet in tablets  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{tablet.id}}">{{tablet.name}}</a></td>
+                                    <!--<td>{{tablet.name}}</td>-->
+                                    <td>{{tablet.manufacturer}}</td>
+                                    <td>{{tablet.model}}</td>
+                                    <td>{{tablet.type}}</td>
+                                    <td>{{tablet.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{tablet.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                {%  for custom in customs  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/model/{{custom.id}}">{{custom.name}}</a></td>
+                                    <!--<td>{{custom.name}}</td>-->
+                                    <td>{{custom.manufacturer}}</td>
+                                    <td>{{custom.model}}</td>
+                                    <td>{{custom.type}}</td>
+                                    <td>{{custom.notes}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/model/delete/{{custom.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                </tbody>
+                
+                                <tfoot>
+                                <tr>
+                                  <th>Model Name</th>
+                                  <th>Manufacturer</th>
+                                  <th>Product Model</th>
+                                  <th>Type</th>
+                                  <th>Notes</th>
+                                  <th>Actions</th>
+                                </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

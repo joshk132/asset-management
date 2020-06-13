@@ -1,0 +1,64 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Delete Account</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <br>
+                      <form action="/settings/delete/feedback" method="POST">
+                        <h3>Before you leave we would love it if you gave us some feedback on why you are deleting your account!</h3>
+                        <p class="text-center"><small>Please know these emails are read by the CEO and lead developer. We strive for a better product and customer experience. 
+                        Please consider using the form on the <a href="/dashboard">dashboard</a> to let us know what we could improve to keep you around and loving our product.</small></p>
+                        <div class="form-group">
+                          <label for="usr">Name:</label>
+                          <input type="text" class="form-control" name="name" id="usr">
+                        </div>
+                        <div class="form-group">
+                          <label for="usr">Reason:</label>
+                          <input type="text" class="form-control" name="reason" id="reason">
+                        </div>
+                        <div class="form-group">
+                          <label for="explanation">Explanation:</label>
+                          <textarea class="form-control" rows="5" name="explanation" id="explanation"></textarea>
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-4"><button type="submit" class="btn btn-info btn-lg"><span class="fa fa-comments-o"></span> Provide Feedback</button></div>
+                        <br><br><br><br><br><br>
+                      </form>
+                      <form action="/user/delete" method="POST" class="form-horizontal">
+                        <hr>
+                        <div class="form-group">
+                          <div class="col-sm-offset-4 col-sm-4"><button type="submit" class="btn btn-danger btn-lg"><span class="ion-ios-trash-outline"></span> Delete Account</button></div>
+                        </div>
+                      </form>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+
+    {% include "../../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

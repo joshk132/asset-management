@@ -1,0 +1,79 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Manufacturers</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <div class="box">
+                            <div class="box-body">
+                              <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                  <th>Manufacturer</th>
+                                  <th>URL</th>
+                                  <th>Support URL</th>
+                                  <th>Contact Email</th>
+                                  <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {%  for manufacturer in manufacturers  %}
+                                  <tr>
+                                    <td><a href="/dashboard/it/manufacturer/{{manufacturer.id}}">{{manufacturer.manufacturer}}</a></td>
+                                    <td><a href="https://{{manufacturer.URL}}">{{manufacturer.URL}}</a></td>
+                                    <td>{{manufacturer.supportURL}}</td>
+                                    <td>{{manufacturer.contactEmail}}</td>
+                                    <td>
+                                      <form id="delete-form" action="/dashboard/it/manufacturer/delete/{{manufacturer.id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      </form>
+                                    </td>
+                                  </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                  <th>Manufacturer</th>
+                                  <th>URL</th>
+                                  <th>Suppor tURL</th>
+                                  <th>Contact Email</th>
+                                  <th>Actions</th>
+                                </tr>
+                                </tfoot>
+                              </table>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

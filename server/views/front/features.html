@@ -1,0 +1,174 @@
+{% extends '../layouts/frontsub.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+        <!-- ========== PAGE TITLE ========== -->
+        <header class="header page-title" >
+            <div class="container">
+                <!-- For centering the content vertically -->
+                <div class="outer">
+                    <div class="inner text-center">
+                        <h1>Features</h1>
+                    </div> <!-- end inner -->
+                </div> <!-- end outer -->
+            </div> <!-- end container -->
+        </header>
+
+        <!-- ========== SINGLE SHOW ========== -->
+        <section class="se-section single-feature">
+    		<div class="col-md-6 zero-padding col-md-push-6 side-img">
+    			<img src="/images/front/adduser.PNG" alt="" class="img-responsive">
+    		</div>
+    		<div class="container feature-desc">
+    			<div class="row">
+    				<div class="col-md-5 feature-info">
+    					<h2>Add Users</h2>
+    					<p>Knowing an asset is out is not enough, you need to know who has it and how to reach them quickly.</p>
+    					<p>Quickly add users with either limited information or fill out lots about them. Flexibility is empowers you to control more about your business.</p>
+    					<a href="/features" class="btn se-btn btn-rounded">Learn More</a>
+    				</div>
+    			</div>
+    		</div>
+    	</section>
+
+        <!-- ========== LIST OF FEATURES ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-ios-analytics"></i>
+                            <h5>Track unlimited assets</h5>
+                            <p>There is no reason you should be limited on how many things you can track, that is why we enable you to track everything you own.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-ios-paper"></i>
+                            <h5>Documentation</h5>
+                            <p>Being able to look up how to do what you want is important. We include lots of detailed documentation for you to look at.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-ios-flame"></i>
+                            <h5>Track expendables</h5>
+                            <p>Some things get used up each day and we never get told we are low until we are out of them. Get warned early.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-usb"></i>
+                            <h5>Software Licenses</h5>
+                            <p>We enable you to not only track your physical assets but your digital ones too.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-iphone"></i>
+                            <h5>Responsive</h5>
+                            <p>Accessing us on the go sometimes is your only option, so we're mobile friendly!</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-social-usd"></i>
+                            <h5>Limit Asset Loss</h5>
+                            <p>Know who has your assets and when they are due back. No more lost or stolen assets.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+                    
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-person"></i>
+                            <h5>User Assignable</h5>
+                            <p>Assign assets to individual users while creating assets or later when needed.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+                    
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-ios-lightbulb"></i>
+                            <h5>Make Better Decisions</h5>
+                            <p>Know when to replace assets and what needs to be replaced.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+                    
+                    <div class="col-md-4 col-sm-6 se-feature-style-3">
+                        <div class="feature-wrap">
+                            <i class="icon ion-ios-barcode"></i>
+                            <h5>Built In Barcodes</h5>
+                            <p>Generate barcodes custom for each asset with asset name and number included.</p>
+                            <!--<a href="#" class="learn-more">Learn More</a>-->
+                        </div> <!-- end feature-wrap -->
+                    </div> <!-- end se-feature-style-3 -->
+
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+        
+        <!-- ========== BULLET POINTS ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="underline">Security</h4>
+                        <ul class="highlights">
+                            <li><i class="icon ion-checkmark"></i>Bcrypt hashing for passwords</li>
+                            <li><i class="icon ion-checkmark"></i>Two-Factor Authentication <small>Coming soon..</small></li>
+                            <li><i class="icon ion-checkmark"></i>24 x 7 dedicated monitoring</li>
+                            <li><i class="icon ion-checkmark"></i>Assets locked to users</li>
+                            <li><i class="icon ion-checkmark"></i>Two-Factor authentication</li>
+                        </ul>
+                    </div> <!-- end col-md-4 -->
+                    <div class="col-md-4">
+                        <h4 class="underline">Assets</h4>
+                        <ul class="highlights">
+                            <li><i class="icon ion-checkmark"></i>Limitless asset creation</li>
+                            <li><i class="icon ion-checkmark"></i>Large selection of model types and custom</li>
+                            <li><i class="icon ion-checkmark"></i>Deploy when creating an asset</li>
+                            <li><i class="icon ion-checkmark"></i>Auto incrementing asset numbers</li>
+                            <li><i class="icon ion-checkmark"></i>Search for quick asset creation</li>
+                        </ul>
+                    </div> <!-- end col-md-4 -->
+                    <div class="col-md-4">
+                        <h4 class="underline">Software Licenses</h4>
+                        <ul class="highlights">
+                            <li><i class="icon ion-checkmark"></i>Product Keys</li>
+                            <li><i class="icon ion-checkmark"></i>Licensed to person and email</li>
+                            <li><i class="icon ion-checkmark"></i>License length with notices</li>
+                            <li><i class="icon ion-checkmark"></i>Purchase Order Numbers</li>
+                            <li><i class="icon ion-checkmark"></i>Tie a license to a person</li>
+                        </ul>
+                    </div> <!-- end col-md-4 -->
+                </div>
+            </div>
+        </section>
+        
+        <section class="primary-bg">
+		<div class="container">
+		    <div class="row text-center">
+			    <h3>Start Tracking Your Assets Now!</h3>
+			    <p>Join today, no credit card required.</p> <a href="/signup" class="btn se-btn-black btn-rounded">SIGN UP</a>
+			    <br><br>
+		    </div>
+		</div>
+	</section>
+
+        {% endblock %}

@@ -1,0 +1,90 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Notifications</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <br>
+                      {% include "../../partials/flash.html" %}
+                      <form role="form-inline"action="/dashboard/settings/notifications?_method=PUT" method="POST">
+                          <div>
+                          <h3>Email</h3>
+                          <span>Select the notifications you would like to receive.</span>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="newsletterEmail" type="checkbox" value="true" {% if newsletterEmail === true %}checked{% endif %}>
+                            Newsletter notifications
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="lowerLimitEmail" type="checkbox" value="true"{% if lowerLimitEmail === true %}checked{% endif %}>
+                            Expendables below lower limit
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="featuresEmail" type="checkbox" value="true"{% if featuresEmail === true %}checked{% endif %}>
+                            New features / important site update
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="featuresEmail" type="checkbox" value="true"{% if stockEmail === true %}checked{% endif %}>
+                            Consumable Stock Level
+                          </label>
+                        </div>
+                        <div>
+                          <h3>On-Site</h3>
+                          <span>Select the notifications you would like to receive.</span>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="assetOut180" type="checkbox" value="true"{% if assetOut180 === true %}checked{% endif %}>
+                            Asset assigned for more then 180 days
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="form-check-input" name="lowerLimit" type="checkbox" value="true"{% if lowerLimit === true %}checked{% endif %}>
+                            Expendables below lower limit
+                          </label>
+                        </div>
+                        <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                       </form>
+                    </div>
+                    <br>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+  <div><br><br><br><br><br><br><br><br><br><br><br><br></div>    
+      
+
+    
+    
+      <div><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

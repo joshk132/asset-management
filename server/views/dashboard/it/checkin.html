@@ -1,0 +1,64 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Checkin Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                        <div class="col-md-6 col-md-offset-2">
+                        <form role="form-inline"action="/dashboard/it/checkin" method="POST">
+                            <div class="box-body">
+                                <div class="form-group" id="assign">
+                                    <label for="assign"  class="control-label">User</label>
+                                    <select class="form-control selectpicker" title="Asset" name="assignSel" data-live-search="true">
+                                        {%  for assign in assigns  %}
+                                            <option name="assign" value="{{ assign.id }}">{{ assign.subuser }} | {{ prefix }}{{ assign.asset }}</option>
+                                            <!--<input type="hidden" name="outdate" value="{{ assign.checkoutDate }}"/>-->
+                                        {% endfor %}
+                                    </select>
+                                </div><!-- User Select -->
+                                <div class="form-group">
+                                    <label for="subuser"  class="control-label">Check In Date</label>
+                                    <input type="date" class="form-control" id="checkinDate" name="checkinDate" placeholder="Check In Date">
+                                </div><!-- Check in -->
+                                <div class="form-group">
+                                    <label for="notes">Notes</label>
+                                    <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                                </div><!-- Notes -->
+                                <div class="box-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div><br><br><br><br><br></div>
+                      </div>
+                      
+                      
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid hidden-print">
+            <div class="box-header with-border">
+              <h3 class="box-title">Print Labels</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <div class="box">
+                            <div class="box-body">
+                              <table id="example1" class="table table-bordered table-striped my_table">
+                                <thead>
+                                <tr>
+                                  <th>Select</th>
+                                  <th>Model</th>
+                                  <th>Asset Number</th>
+                                  <th>Warranty</th>
+                                  <th>Notes</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  
+                                {%  for asset in assets  %}
+                                  <tr class="row-select">
+                                    <td ><input type="checkbox" name="{{ asset.id }}"/></td>
+                                    <td>{{asset.model}}</td>
+                                    <td><a href="/dashboard/it/asset/{{asset.id}}" class="id" name="{{ prefix }}{{asset.assetNumber}}">{{ prefix }}{{asset.assetNumber}}</a></td>
+                                    <td>{{asset.warranty | date("y-m-d")}}</td>
+                                    <td>{{asset.notes}}</td>
+                                  </tr>
+                                {% endfor %}
+                                
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                  <th>Select</th>
+                                  <th>Model</th>
+                                  <th>Asset Number</th>
+                                  <th>Warranty</th>
+                                  <th>Notes</th>
+                                </tr>
+                                </tfoot>
+                              </table>
+                                <button class="btn btn-primary" id="btn1" onclick="getSelected()"><i class="fa fa-barcode"></i> Generate Barcodes</button>
+                                <button class="btn btn-primary" id="btn1" onclick="window.print()"><i class="fa fa-print"></i> Print</button>
+                            </div>
+                            <!-- /.box-body -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-12 hidden-print">
+                  <style>
+                    .hidden {display: none;}
+                  </style>
+                  <div id="test123" class="hidden">{{test}}</div>
+                  <div id="codeType" class="hidden">{{codeType}}</div>
+                </div>
+              </div>
+              <!-- /.row -->
+              
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <div class="row">
+          <div class="container">
+            <div id="printable">
+              <div class="target" id="section-to-print">
+                <!-- all divs will append here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+             <!--/.box-body -->
+        </div>  
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+<div id="perpage" class="hidden">{{perpage}}</div>
+<div id="width" class="hidden">{{width}}</div>
+<div id="length" class="hidden">{{length}}</div>
+<div id="font" class="hidden">{{font}}</div>
+<div id="textname" class="hidden">{{textname}}</div>
+<style>
+ .hidden {display: none;}
+</style>
+
+{% endblock %}

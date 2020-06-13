@@ -1,0 +1,84 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Assigned</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <div class="box">
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Asset Number</th>
+                  <th>Date Assigned</th>
+                  <th>Notes</th>
+                  <!--<th>Actions</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                  
+                {%  for assigned in assigneds  %}
+                  <tr>
+                    <td>{{assigned.subuser}}</td>
+                    <td>{{ assigned.asset }}</td>
+                    <td>{{assigned.checkoutDate | date("y-m-d")}}</td>
+                    <td>{{assigned.notes}}</td>
+                    <!--<td>-->
+                    <!--  <form id="delete-form" action="/dashboard/it/assign/delete/{{assigned.id}}?_method=DELETE" method="POST">-->
+                    <!--    <button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>-->
+                    <!--  </form>-->
+                    <!--</td>-->
+                  </tr>
+                {% endfor %}
+                
+                
+                
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th>User</th>
+                  <th>Asset Number</th>
+                  <th>Date Assigned</th>
+                  <th>Notes</th>
+                  <!--<th>Actions</th>-->
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.box-body -->
+              </div>
+               <!--/.box-body -->
+            </div> 
+      
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

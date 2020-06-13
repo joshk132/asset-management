@@ -1,0 +1,972 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Model</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+          <div class="box">
+            <div class="box-body">
+              {% if foundAP %}
+               <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundAP.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundAP.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundAP.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundAP.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>IPAdress</th>
+                        <td>{{foundAP.IPAdress[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>MACAdress</th>
+                        <td>{{foundAP.MACAdress[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Range</th>
+                        <td>{{foundAP.range}}</td>
+                      </tr>
+                      <tr>
+                        <th>Bands</th>
+                        <td>{{foundAP.bands}}</td>
+                      </tr>
+                      <tr>
+                        <th>Channel</th>
+                        <td>{{foundAP.channe}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundAP.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>PoE</th>
+                        <td>{{foundAP.PoE[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundAP.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundAP.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundAP.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundAP.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundAP.notes[0]}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundCable %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundCable.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundCable.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cable Type</th>
+                        <td>{{foundCable.cableType}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundCable.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundCable.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundDeskPhone %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundDeskPhone.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundDeskPhone.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundDeskPhone.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundDeskPhone.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundDeskPhone.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundDeskPhone.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundDesktop %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundDesktop.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundDesktop.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundDesktop.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundDesktop.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>CPU</th>
+                        <td>{{foundDesktop.cpu[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>RAM</th>
+                        <td>{{foundDesktop.ram[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>GPU</th>
+                        <td>{{foundDesktop.gpu[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>VRAM</th>
+                        <td>{{foundDesktop.vram[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Number of Drive(s)</th>
+                        <td>{{foundDesktop.numDrive[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Size of Drive(s)</th>
+                        <td>{{foundDesktop.sizeDrive[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type of Drive</th>
+                        <td>{{foundDesktop.typeDrive[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundDesktop.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundDesktop.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundDesktop.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Number of USB Ports</th>
+                        <td>{{foundDesktop.usbPorts[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundDesktop.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundLaptop %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundLaptop.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundLaptop.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundLaptop.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundLaptop.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>CPU</th>
+                        <td>{{foundLaptop.cpu[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>RAM</th>
+                        <td>{{foundLaptop.ram[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>GPU</th>
+                        <td>{{foundLaptop.gpu[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>VRAM</th>
+                        <td>{{foundLaptop.vram[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Size of Drive(s)</th>
+                        <td>{{foundLaptop.sizeDrive[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type of Drive(s)</th>
+                        <td>{{foundLaptop.typeDrive[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundLaptop.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundLaptop.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Number of USB Ports</th>
+                        <td>{{foundLaptop.usbPorts[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>notes</th>
+                        <td>{{foundLaptop.notes}}</td>
+                      </tr>
+                      <tr>
+                        <th>User</th>
+                        <td>{{foundLaptop.user}}</td>
+                      </tr>
+                      <tr>
+                        <th>Stand Alone</th>
+                        <td>{{foundLaptop.standAlone}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundMobilePhone %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundMobilePhone.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundMobilePhone.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundMobilePhone.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundMobilePhone.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundMobilePhone.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundMobilePhone.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundMobilePhone.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundMobilePhone.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundMobilePhone.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Phone Number</th>
+                        <td>{{foundMobilePhone.phoneNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Operating System</th>
+                        <td>{{foundMobilePhone.os}}</td>
+                      </tr>
+                      <tr>
+                        <th>Sim Number</th>
+                        <td>{{foundMobilePhone.simNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>MACAdress</th>
+                        <td>{{foundMobilePhone.MACAdress[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>User</th>
+                        <td>{{foundMobilePhone.user}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundMobilePhone.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundMonitor %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundMonitor.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundMonitor.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundMonitor.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundMonitor.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundMonitor.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundMonitor.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundMonitor.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundMonitor.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundMonitor.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundMonitor.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Resolution</th>
+                        <td>{{foundMonitor.resolution[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Panel Type</th>
+                        <td>{{foundMonitor.panelType}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundMonitor.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundPrinter %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundPrinter.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundPrinter.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundPrinter.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundPrinter.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundPrinter.dateBought}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundPrinter.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundPrinter.lifeExpectancy}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundPrinter.warrantyExpiration}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundPrinter.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>location</th>
+                        <td>{{foundPrinter.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>IPAdress</th>
+                        <td>{{foundPrinter.IPAdress}}</td>
+                      </tr>
+                      <tr>
+                        <th>MACAdress</th>
+                        <td>{{foundPrinter.MACAdress}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundPrinter.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundProjector %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundProjector.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundProjector.type}}</td>
+                      </tr>
+                      <tr>
+                        <th><anufacturer</th>
+                        <td>{{foundProjector.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundProjector.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundProjector.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundProjector.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundProjector.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundProjector.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundProjector.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Resolution</th>
+                        <td>{{foundProjector.resolution[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundProjector.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundRouter %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundRouter.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundRouter.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>IPAdress</th>
+                        <td>{{foundRouter.IPAdress}}</td>
+                      </tr>
+                      <tr>
+                        <th>MACAdress</th>
+                        <td>{{foundRouter.MACAdress}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundRouter.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundRouter.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Speed</th>
+                        <td>{{foundRouter.speed[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundRouter.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundRouter.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundRouter.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>PoE</th>
+                        <td>{{foundRouter.PoE[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundRouter.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundRouter.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundRouter.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Resolution</th>
+                        <td>{{foundRouter.resolution[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundRouter.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundServer %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundServer.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundServer.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>CPU</th>
+                        <td>{{foundServer.cpuNum}} x {{foundServer.cpu}}</td>
+                      </tr>
+                      <tr>
+                        <th>RAM</th>
+                        <td>{{foundServer.ram}}</td>
+                      </tr>
+                      <tr>
+                        <th>Total Number of Drives</th>
+                        <td>{{foundServer.driveNum}}</td>
+                      </tr>
+                      <tr>
+                        <th>Total Drive Capacity</th>
+                        <td>{{foundServer.driveCap}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundServer.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundServer.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundSwitch %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundSwitch.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundSwitch.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundSwitch.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>IPAdress</th>
+                        <td>{{foundSwitch.IPAdress[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>MACAdress</th>
+                        <td>{{foundSwitch.MACAdress[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundSwitch.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Speed</th>
+                        <td>{{foundSwitch.speed[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundSwitch.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundSwitch.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundSwitch.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Number of Ports</th>
+                        <td>{{foundSwitch.numPorts[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>PoE</th>
+                        <td>{{foundSwitch.PoE[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundSwitch.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundSwitch.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundSwitch.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundSwitch.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundTablet %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundTablet.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundTablet.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundTablet.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundTablet.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Date Bought</th>
+                        <td>{{foundTablet.dateBought[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundTablet.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Life Expectancy</th>
+                        <td>{{foundTablet.lifeExpectancy[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Warranty Expiration</th>
+                        <td>{{foundTablet.warrantyExpiration[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundTablet.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Location</th>
+                        <td>{{foundTablet.location[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>RAM</th>
+                        <td>{{foundTablet.ram[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Resolution</th>
+                        <td>{{foundTablet.resolution[0]}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundTablet.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              {% if foundCustom %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundCustom.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Type</th>
+                        <td>{{foundCustom.type}}</td>
+                      </tr>
+                      <tr>
+                        <th>Manufacturer</th>
+                        <td>{{foundCustom.manufacturer}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundCustom.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>Model</th>
+                        <td>{{foundCustom.model}}</td>
+                      </tr>
+                      <tr>
+                        <th>Custom 1</th>
+                        <td>{{foundCustom.custom1}}</td>
+                      </tr>
+                      <tr>
+                        <th>Custom 2</th>
+                        <td>{{foundCustom.custom2}}</td>
+                      </tr>
+                      <tr>
+                        <th>Custom 3</th>
+                        <td>{{foundCustom.custom3}}</td>
+                      </tr>
+                      <tr>
+                        <th>Custom 4</th>
+                        <td>{{foundCustom.custom4}}</td>
+                      </tr>
+                      <tr>
+                        <th>Custom 5</th>
+                        <td>{{foundCustom.custom5}}</td>
+                      </tr>
+                      <tr>
+                        <th>Asset Number</th>
+                        <td>{{foundCustom.assetNumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Signout</th>
+                        <td>{{foundCustom.signout}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundCustom.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            <!-- /.box-body -->
+          </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

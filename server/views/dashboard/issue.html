@@ -1,0 +1,70 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Report An Issue</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-md-11">
+                            <br>
+                            <p><strong>
+                                Please be as descriptive as possible, the more detail you give us the sooner we can resolve you issue. 
+                                Bugs are a fact of life with sites. That doesn't mean that they have to stay. We can resolve them quickly 
+                                but you got to let us know first.
+                            </strong></p>
+                          <form role="form-inline"action="/dashboard/issue" method="POST">
+                              <div class="box-body">
+                                <div class="form-group col-md-4">
+                                  <label for="method" class="control-label">Type of issue</label>
+                                  <select class="form-control selectpicker" title="Type of issue" name="type">
+                                      <option value="Server error">Server error</option>
+                                      <option value="Page not loading correct">Page not loading correct</option>
+                                      <option value="Function not workin">Function not working</option>
+                                      <option value="Billing issue">Billing issue</option>
+                                      <option value="Profile issue">Profile issue</option>
+                                      <option value="Setting not saving">Setting not saving</option>
+                                      <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                  <textarea class="form-control" rows="3" id="issue" name="issue" placeholder="Please be specific about your issue/error.."></textarea>
+                                </div><!-- Issue -->
+                                <div class="box-footer">
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+
+    {% include "../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

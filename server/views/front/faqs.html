@@ -1,0 +1,72 @@
+{% extends '../layouts/frontsub.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+        <!-- ========== PAGE TITLE ========== -->
+        <header class="header page-title" >
+            <div class="container">
+                <!-- For centering the content vertically -->
+                <div class="outer">
+                    <div class="inner text-center">
+                        <h1 class="">Do you have a question?</h1>
+                        <h5 class="">Here are answers to most frequently asked questions.</h5>
+                        <a href="/signup" class="btn se-btn-black btn-rounded mt20">Sign Up Now</a>
+
+                    </div> <!-- end inner -->
+                </div> <!-- end outer -->
+            </div> <!-- end container -->
+        </header>
+
+        <!-- ========== FAQ SECTION ========== -->
+        <section class="se-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">What exactly you get with this?</h6>
+                        <p>You get a leading asset management tool that allows you to track physical and digital assets while being easy to use.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">Are you PCI compliant</h6>
+                        <p>Yes, Phantom Asset Management’s payment system is PCI DSS compliant since we use Stripe as our payment processor.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">How many assets to you currently track?</h6>
+                        <p>We track over 1370 assets for our users. That number is growing even right now while you are reading this.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">Can I let users checkout an asset?</h6>
+                        <p>Yes you can have users checkout an asset or as we call it, you can assign them an asset. Right from the asset creation page as well to save on time.</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">How fast is your site?</h6>
+                        <p>We aim for under 250 milliseconds to ensure you don't notice a wait time loading pages. Who has time to wait nowadays?</p>
+                    </div> <!-- end se-faq -->
+
+                    <div class="col-md-6 col-sm-6 se-faq">
+                        <h6 class="underline">How complete is the documentation?</h6>
+                        <p>We are always adding to our documentation as we add features and learn what is best for our users. We strive to make it so the documentation is so clear 
+                        you don't have to ask how to do the basics, you just know.</p>
+                    </div> <!-- end se-faq -->
+                </div> <!-- end row -->
+            </div> <!-- end container -->
+        </section>
+
+       
+
+        <section class="primary-bg">
+		<div class="container">
+		    <div class="row text-center">
+			    <h3>Start Tracking Your Assets Now!</h3>
+			    <p>Join today, no credit card required.</p> <a href="/signup" class="btn se-btn-black btn-rounded">SIGN UP</a>
+			    <br><br>
+		    </div>
+		</div>
+	</section>
+
+        {% endblock %}

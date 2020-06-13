@@ -1,0 +1,85 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Barcodes</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <br>
+                      {% include "../../partials/flash.html" %}
+                      <br>
+                      <form role="form-inline"action="/dashboard/settings/barcodes" method="POST">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                              <label for="prefix" class="control-label">Bar Code Format</label>
+                              <br>
+                              <select class="form-control selectpicker" title="Bar code Type" name="codeType" data-live-search="true" disabled>
+                                <option value="code128" selected>code128</option>
+                                <option value="ean13">ean13</option>
+                                <option value="ean8">ean8</option>
+                                <option value="ean5">ean5</option>
+                                <option value="ean2">ean2</option>
+                                <option value="upc">upc</option>
+                                <option value="code39">code39</option>
+                                <option value="itf14">itf14</option>
+                                <option value="msi">msi</option>
+                                <option value="pharmacode">pharmacode</option>
+                              </select>
+                            </div><!-- Bar Code Type-->
+                            <br>
+                            <div class="box-footer">
+                              <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                          </div>
+                       </form>
+                        <style>
+                          .hidden {display: none;}
+                        </style>
+                        <div class="col-md-6">
+                          <div id="test123" class="hidden">{{test}}</div>
+                          <div id="codeType" class="hidden">{{codeType}}</div>
+                          <label for="barcode">Example barcode</label>
+                          <br>
+                          <img id="barcode1"/>
+                          <br>
+                          <button id="btn1" class="btn btn-primary">Test Me!</button>
+                          <br><br>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+<script>
+  var test = document.getElementById("test123").innerHTML;
+  var codeType = document.getElementById("codeType").innerHTML;
+  //$('#barcode').JsBarcode(test, {format: codeType},{ width: 2, height: 90 });
+  
+  $('#btn1').click(function(){
+      $('#barcode1').JsBarcode(test, {format: codeType}, {width: 2, height: 90});
+}); 
+</script>
+
+{% endblock %}

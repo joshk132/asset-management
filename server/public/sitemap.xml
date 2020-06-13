@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://phantomam.com/</loc>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/features</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/pricing</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/about</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/faqs</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/contact</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/login</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/privacy-policy</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/terms-and-conditions</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/eula</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/silver</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/gold</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/platinum</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/silveryear</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/goldyear</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/signup/platinumyear</loc>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://phantomam.com/forgot</loc>
+  <priority>0.64</priority>
+</url>
+</urlset>

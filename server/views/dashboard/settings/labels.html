@@ -1,0 +1,82 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Labels</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                  
+                  <!-- Content here --> 
+                  <div class="container">
+                    <br>
+                  {% include "../../partials/flash.html" %}
+                    <br>
+                    <form action="/dashboard/settings/labels" method="POST" class="form-horizontal">
+                      <div class="form-group">
+                        <label for="numpage" class="col-sm-3 control-label">Labels Per Page</label>
+                        <div class="col-sm-4">
+                          <input type="number" name="perpage" class="form-control" value="{{perpage}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="font" class="col-sm-3 control-label">Font Size<br><small>16+ recommended</small></label>
+                        <div class="col-sm-4">
+                          <input type="number" name="font" class="form-control" min="1" max="36" value="{{font}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="width" class="col-sm-3 control-label">Label Width<br><small>1.25 - 2.5 recommended</small></label>
+                        <div class="col-sm-4">
+                          <input type="number" name="width" class="form-control" step="0.01" min="0.01" value="{{width}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="length" class="col-sm-3 control-label">Label Height<br><small>75+ recommended</small></label>
+                        <div class="col-sm-4">
+                          <input type="number" name="length" class="form-control" step="0.01" min="0.01" value="{{length}}">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                          Commpany Name
+                          <input type="checkbox" name="name" {% if name == true %}checked{% endif %} disabled>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                          Asset Number
+                          <input type="checkbox" name="assetnumber" {% if assetnumber == true %}checked{% endif %} disabled>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-4">
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+
+{% endblock %}
+

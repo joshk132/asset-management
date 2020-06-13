@@ -1,0 +1,68 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Create Manufacturer</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                      <form role="form-inline"action="/dashboard/it/manufacturer/new" method="POST">
+                        <div class="box-body">
+                            <div class="form-group">
+                              <label for="manufacturer" class="control-label">Manufacturer</label>
+                              <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Manufacturer">
+                            </div>
+                            <div class="form-group">
+                              <label for="industry" class="control-label">Industry</label>
+                              <input type="text" class="form-control" id="industry" name="industry" placeholder="Industry">
+                            </div>
+                            <div class="form-group">
+                              <label for="url" class="control-label">URL</label>
+                              <input type="text" class="form-control" id="url" name="URL" placeholder="URL">
+                            </div>
+                            <div class="form-group">
+                              <label for="customField" class="control-label">Suport URL</label>
+                              <input type="text" class="form-control" id="supportURL" name="supportURL" placeholder="Suport URL">
+                            </div> 
+                            <div class="form-group">
+                              <input type="button" class="btn btn-primary addURL" id="addURL" value="Add URL"/>
+                            </div>
+                            <div class="form-group">
+                              <label for="contactEmail" class="control-label">Contact Email</label>
+                              <input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Contact email">
+                            </div>
+                        </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <button type="submit" class="btn btn-primary tour-step tour-step-five">Submit</button>
+                      </div>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

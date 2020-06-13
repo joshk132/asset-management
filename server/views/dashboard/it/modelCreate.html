@@ -1,0 +1,335 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Create Model</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                      <form role="form-inline"action="/dashboard/it/model/new" method="POST">
+                        <div class="box-body">
+                            <div class="form-group">
+                              <label for="templateName" class="control-label">Template Name</label>
+                              <input type="text" class="form-control" name="name" id="name" placeholder="Asset Template Name">
+                            </div>
+                            <div class="form-group tour-step tour-step-eight" id="manufacturer">
+                                <label for="manufacturer"  class="control-label">Manufacturer</label>
+                                <select class="form-control selectpicker" title="Manufacturer" name="manufacturer" data-live-search="true">
+                                  {%  for allManufacturer in allManufacturers  %}
+                                    <option value="{{allManufacturer.manufacturer}}">{{allManufacturer.manufacturer}}</option>
+                                    
+                                  {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="model">
+                              <label for="model" class="control-label">Product Model Name</label>
+                              <input type="text" class="form-control" id="model" name="model" placeholder="Product Model Name">
+                            </div>
+                            
+                            <!-- Start Type Select -->
+                            <div class="form-group tour-step tour-step-nine">
+                                <label for="type" class="control-label">Type</label>
+                                <select class="form-control selectpicker" title="Type of Asset" name="type" data-live-search="true" id="type" onchange="typePicker()">
+                                  <option value="aps">Access Point</option>
+                                  <option value="cables">Cable</option>
+                                  <option value="desktops">Desktop</option>
+                                  <option value="laptops">Laptop</option>
+                                  <option value="deskPhones">Desk Phone</option>
+                                  <option value="mobilePhones">Mobile Phone</option>
+                                  <option value="monitors">Monitor</option>
+                                  <option value="printers">Printer</option>
+                                  <option value="projectors">Projector</option>
+                                  <option value="routers">Router</option>
+                                  <option value="servers">Server</option>
+                                  <option value="switches">Switch</option>
+                                  <option value="tablets">Tablet</option>
+                                  <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <!-- End Type Select -->
+                            <div class="form-group" id="typeInputs">
+                                <!-- Start aps -->
+                                <div id="aps">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" name="range" id="range" placeholder="Range in M">
+                                  </div> <!-- Range -->
+                                  <div class="form-group">
+                                      <input type="text" class="textbox-n form-control" name="bands" id="bands" placeholder="Bands" >
+                                  </div> <!-- Bands -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" name="channels" id="channels" placeholder="Channel(s)">
+                                  </div> <!-- Channels -->
+                                  <div class="btn-group" data-toggle="buttons">
+                                      <label for="poe">PoE</label>
+                                      <br>
+                                      <label class="btn btn-primary"><input type="radio" name="poe" id="option1"> Yes</label>
+                                      <label class="btn btn-primary"><input type="radio" name="poe" id="option2"> No</label>
+                                  </div>  <br><br><!-- PoE -->
+                                </div>
+                                <!-- End aps -->
+                                <!-- Start Cables -->
+                                <div id="cables">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="type" name="cableType" placeholder="Type">
+                                  </div><!-- cable type -->
+                                </div>
+                                <!-- End Cables -->
+                                <!-- Start Desk Phones -->
+                                <div id="deskPhones">
+                                </div>
+                                <!-- Start Desktops -->
+                                <div id="desktops">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="cpu" name="cpu" placeholder="CPU">
+                                  </div><!-- CPU -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="ram" name="ram" placeholder="RAM">
+                                  </div> <!-- RAM -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="gpu" name="gpu" placeholder="GPU">
+                                  </div><!-- GPU -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="vram" name="vram" placeholder="VRAM">
+                                  </div><!-- VRAM -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="numDrive" name="numDrive" placeholder="Number of Drives">
+                                  </div><!-- Number of Drives -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="sizeDrive" name="sizeDrive" placeholder="Size of Drive(s)">
+                                  </div><!-- Size of Drive(s) -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="typeDrive" name="typeDrive" placeholder="Type of Drive(s)">
+                                  </div><!-- Type of Drives -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                  </div><!-- Expected Life in Months -->
+                                  
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="usbPorts" name="usbPorts" placeholder="Number of USB Ports">
+                                  </div><!-- Number of USB Ports -->
+                                </div>
+                                <!-- End Desktops-->
+                                <!-- Start Laptops -->
+                                <div id="laptops">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control"  id="cpu" name="cpu" placeholder="CPU">
+                                  </div><!-- CPU -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="ram" name="ram" placeholder="RAM">
+                                  </div><!-- RAM -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="gpu" name="gpu" placeholder="GPU">
+                                  </div><!-- GPU -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="vram" name="vram" placeholder="VRAM">
+                                  </div><!-- VRAM -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="sizeDrive" name="sizeDrive" placeholder="Size of Drive(s)">
+                                  </div><!-- Size of Drive(s) -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="typeDrive"name="typeDrive" placeholder="Type of Drive(s)">
+                                  </div><!-- Type of Drives -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                  </div><!-- Expected Life in Months -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="usbPorts" name="usbPorts" placeholder="Number of USB Ports">
+                                  </div><!-- Number of USB Ports -->
+                                </div>
+                                <!-- End Laptops -->
+                                <!-- Start Mobile Phones -->
+                                <div id="mobilePhones">
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="lifeExpectancy" name="lifeExpectancy" placeholder="Life Expectancy">
+                                  </div><!-- Life Expectancy -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="os" name="os" placeholder="Operating System">
+                                  </div><!-- OS -->
+                                </div>
+                                <!-- End Mobile Phones -->
+                                <!-- Start Monitors -->
+                                <div id="monitors">
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                  </div><!-- Expected Life in Months -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="resolution" name="resolution" placeholder="Resolution">
+                                  </div><!-- Resolution -->
+                                  
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="panelType" name="panelType" placeholder="Panel Type">
+                                  </div><!-- Panel Type -->
+                                </div>
+                                <!-- End Monitors -->
+                                <!-- Start Printers-->
+                                <div id="printers">
+                                  <div class="form-group">
+                                      <input class="form-control" id="lifeExpectancy" name="lifeExpectancy" placeholder="Life Expectancy">
+                                  </div><!-- Life Expectancy -->
+                                </div>
+                                <!-- End Printers-->
+                                <!-- Start Projectors -->
+                                <div id="projectors">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="resolution" name="resolution" placeholder="Resolution">
+                                  </div><!-- Resolution -->
+                                </div>
+                                <!-- End Projectors -->
+                                <!-- Start Routers -->
+                                <div id="routers">
+                                  <div class="form-group ">
+                                      <select class="custom-select form-control" id="sel-speed" name="speed" onchange="speed()">
+                                          <option selected>Select Router Speed</option>
+                                          <option value="100">10/100 Mbps</option>
+                                          <option value="1000">10/100/1000 Mbps</option>
+                                          <option value="10000">10/100/1000/10000 Mbps</option>
+                                          <option value="other">Other</option>
+                                      </select>
+                                  </div><!-- Router Speed -->
+                                  <div class="form-group" id="speed" name="speed">
+                                      
+                                  </div>
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                  </div><!-- Expected Life in Months -->
+                                  <div class="btn-group" data-toggle="buttons">
+                                      <label for="">PoE</label>
+                                      <br>
+                                      <label class="btn btn-primary"><input type="radio" name="poe" id="option1"> Yes</label>
+                                      <label class="btn btn-primary"><input type="radio" name="poe" id="option2"> No</label>
+                                  </div>
+                                  <br><br><!-- PoE -->
+                                </div>
+                                <!-- End Routers -->
+                                <!-- Start Servers -->
+                                <div id="servers">
+                                  <div class="form-group">
+                                      <input type="text" class="form-control"  id="serverName" name="serveNname" placeholder="Server Name">
+                                  </div><!-- Server Name -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="ram" name="ram" placeholder="RAM">
+                                  </div><!-- RAM -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="cpu" name="cpu" placeholder="CPU">
+                                  </div><!-- CPU -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="cpuNum" name="cpuNum" placeholder="Number of CPU">
+                                  </div><!-- CPU Number -->
+                                  <div class="form-group">
+                                      <input type="number" class="form-control" id="driveCap" name="driveCap" placeholder="Total Drive Capacity">
+                                  </div><!-- Total Cap of Drive(s) -->
+                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="driveNum" name="driveNum" placeholder="Number of Drives">
+                                  </div><!-- Number of Drives -->
+                                </div>
+                                <!-- End Servers -->
+                                <!-- Start Switches -->
+                                <div id="switches">
+                                  <div class="form-group">
+                                      <select class="custom-select form-control" id="sel-speed" name="speed" onchange="speed()">
+                                          <option selected>Select Switch Speed</option>
+                                          <option value="100">10/100 Mbps</option>
+                                          <option value="1000">10/100/1000 Mbps</option>
+                                          <option value="10000">10/100/1000/10000 Mbps</option>
+                                          <option value="other">Other</option>
+                                      </select>
+                                  </div><!-- Switch Speed -->
+                                  <div class="form-group" id="speed">
+                                      
+                                  </div> <!-- Switch Speed other input only show when above "other" is selected -->
+                                  <div class="form-group"> 
+                                    <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                  </div><!-- Expected Life in Months -->
+                                  <div class="form-group">
+                                    <input type="number" class="form-control" id="switch-ports" name="switch-ports" placeholder="Number of Ports" min="1">
+                                  </div><!-- Number of Ports -->
+                                  <div class="btn-group" data-toggle="buttons">
+                                    <label for="">PoE</label>
+                                    <br>
+                                    <label class="btn btn-primary"><input type="radio" name="poe" id="option1"> Yes</label>
+                                    <label class="btn btn-primary"><input type="radio" name="poe" id="option2"> No</label>
+                                  </div>
+                                  <br><br><!-- PoE -->
+                                </div>
+                                <!-- End Switches -->
+                                <!-- Start Tablets -->
+                                <div id="tablets">
+                                    <div class="form-group">
+                                        <input type="number" class="form-control" id="life" name="life" placeholder="Life Expectancy In Months" min="0.25" step="0.25">
+                                    </div><!-- Expected Life in Months -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="ram" name="ram" placeholder="RAM">
+                                    </div><!-- RAM -->
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="resolution" name="resolution" placeholder="Resolution">
+                                    </div><!-- Resolution -->
+                                </div>
+                                <!-- End Tablets -->
+                                <!-- Start Other -->
+                                <div id="other">
+                                  <div class="form-group">
+                                      <label for="customField" class="control-label">Custom Field</label>
+                                      <input type="text" class="form-control" id="customField" name="customField" placeholder="Custom Field">
+                                  </div> 
+                                  <input type="button" class="btn btn-primary add" id="add" value="Add Field"/>
+                                </div>
+                                <!-- End Other -->
+                            </div>
+                            <div class="form-gorup" id="warningType">
+                              
+                            </div>
+                            <div class="form-group">
+                              <label for="notes">Cost</label>
+                              <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost">
+                            </div><!-- Cost -->
+                            <div class="form-group">
+                              <label for="notes">Notes</label>
+                              <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                            </div>            <!-- Notes -->
+                            
+                            <div class="btn-group" data-toggle="buttons">
+                              <label for="">User Assignable</label><br>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="signout" id="option1"> Yes
+                              </label>
+                              <label class="btn btn-primary">
+                                <input type="radio" name="signout" id="option2"> No
+                              </label>
+                            </div>
+                            
+                        </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <button type="submit" class="btn btn-primary tour-step tour-step-ten">Submit</button>
+                      </div>
+                    </form>
+                    <br>                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="box">
+                        <div class="box-body">
+                          {% if !foundAsset %}
+                           <h1>Invalid Asset ID!</h1>
+                           <p>Go back to asset list page <a href="/dashboard/it/asset">here</a></p>
+                          {% endif %}
+                          {% if foundAsset %}
+                          <div class="container">
+                            <div class="col-md-6">
+                              <table class="table table-bordered table-striped col-md-6">
+                                <thead>
+                                  <tr>
+                                    <th>Field Name</th>
+                                    <td>Field Value</td>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th>Asset Number</th>
+                                    <td>{{ prefix }}{{foundAsset.assetNumber}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Model</th>
+                                    <td>{{foundAsset.model}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Status</th>
+                                    <td>{{foundAsset.status}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Serial</th>
+                                    <td>{{foundAsset.serial}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Bought</th>
+                                    <td>{{foundAsset.bought}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Warranty</th>
+                                    <td>{{foundAsset.warranty}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Method of Disposal</th>
+                                    <td>{{foundAsset.method}}</td>
+                                  </tr>
+                                  <tr>
+                                    <th>Notes</th>
+                                    <td>{{foundAsset.notes}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            
+                            <div class="col-md-12">
+                              <style>
+                                .hidden {display: none;}
+                                </style>
+                               <div id="test123" class="hidden">{{test}}</div>
+                               <div id="codeType" class="hidden">{{codeType}}</div>
+                               <br>
+                              <img id="barcode1"/>
+                              <br>
+                                <button id="btn1" class="btn btn-primary">Generate Your Custom Barcode</button>
+                              <br><br>
+                            </div>
+                          </div>
+                          {% endif %}
+                          
+                        </div>
+                        <!-- /.box-body -->
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+<script>
+  var test = document.getElementById("test123").innerHTML;
+  var codeType = document.getElementById("codeType").innerHTML;
+  $('#btn1').click(function(){
+      $('#barcode1').JsBarcode(test, {format: codeType}, {width: 2, height: 90});
+});
+</script>
+{% endblock %}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <!-- ========== VIEWPORT META ========== -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+        <!-- ========== PAGE TITLE ========== -->
+        <title>Asset Management</title>
+
+        <!-- ========== META TAGS ========== -->
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+
+        <!-- ========== MINIFIED VENDOR CSS ========== -->
+        <link rel="stylesheet" href="/styles/vendor.css">
+        <link rel="stylesheet" href="/styles/main.css">
+
+        <!-- ========== MODERNIZR ========== -->
+    	<script src="/scripts/vendor/modernizr.js"></script>
+    </head>
+
+    <!-- ========== BODY ==========
+    .light-header: for light colored header
+    .dark-header: for dark colored header
+    ==========  ========== -->
+    <body class=" animsition">
+
+        <!-- ========== HEADER ========== -->
+        <header class="header main-header header-style-3" id="circular-particles">
+            <div class="primary-trans-bg">
+                <div class="container">
+                    <!-- For centering the content vertically -->
+                    <div class="outer">
+                        <div class="inner">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2 form-wrap">
+                                    <div class="text-center logo-wrap">
+                                       <a href="/"><!--<img src="images/dark-logo.svg" alt="" width="125">--><h3>Phantom Asset Management</h3></a>
+                                    </div> <!-- end text-center -->
+                                    {% include "./partials/flash.html" %}
+                                    <form action="/confirmation" method="POST" role="form">
+                                        <div class="form-group col-md-12">
+                                        	<label for="exampleInputEmail1">Email Address</label>
+                                        	<input type="email" class="form-control" name="email" id="exampleInputEmail1" value='{{ email }}'>
+                                        </div> <!-- end form-group -->
+                                        <div class="form-group col-md-12">
+                                        	<label for="token">Token</label>
+                                        	<input type="text" class="form-control" name="token" id="token" placeholder="Token" required="" value='{{ token }}'>
+                                        </div> <!-- end form-group -->
+
+                                        <div class="text-center col-md-12 mt10 mb20">
+                                            <button type="submit" class="btn se-btn btn-rounded">Submit</button>
+                                        </div> <!-- end text-center -->
+                                    </form> <!-- end form -->
+
+
+                                    <!--<div class="col-sm-6">-->
+                                    <!--    <p class="text-muted"><a href="/forgot">Forgot Password?</a></p>-->
+                                    <!--</div>-->
+
+                                    <!--<div class="col-sm-6 text-right">-->
+                                    <!--    <p class="text-muted mbn">Not registered yet? <a href="/signup">Sign Up here!</a></p>-->
+                                    <!--</div>-->
+                                </div>
+                            </div> <!-- end row -->
+                        </div> <!-- end inner -->
+                    </div> <!-- end outer -->
+                </div> <!-- end container -->
+            </div> <!-- end primary-trans-bg -->
+        </header>
+
+    	<script src="/scripts/vendor.js"></script>
+
+        <!-- ========== MINIFIED PLUGINS JS ========== -->
+    	<script src="/scripts/plugins.js"></script>
+
+    	<script src="/scripts/main.js"></script>
+
+        <script src="/scripts/init-animation-circle.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,48 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Backups</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="jumbotron">
+                        <h1 class="display-3">Coming Soon to your world!</h1>
+                        <p class="lead">We are always working on new features and like for you to know what we are working on so we include pages like this one. More you know the better, don't they say?</p>
+                        <hr class="my-4">
+                        <p>Want a feature you don't see us working on? Just go to <a href="/dashboard#featuresRequest">here</a> and contact us letting us know what you want and how important it is to you using our service and we will get on it 
+                        right away. Who knows you might see it very soon.</p>
+                        <p class="lead">
+                          <a class="btn btn-primary btn-lg" href="/dashboard/settings" role="button">Back to settings</a>
+                        </p>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+
+    {% include "../../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

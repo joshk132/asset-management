@@ -1,0 +1,137 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Reports</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <br><br>
+                      <h3 class="text-center hidden-print">One report per page load.</h3>
+                      <br><br>
+                      <div class="col-md-12 text-center"> 
+                          <button id="singlebutton" name="singlebutton" class="btn btn-info btn-lg hidden-print" data-toggle="collapse" data-target="#Assigned">Assigned Assets</button> 
+                      </div>
+                      <br><br><br><br>
+                      <div class="box collapse" id="Assigned">
+                        <div class="box-body">
+                          <table class="table table-bordered table-striped display" id="ReportAssigned">
+                            <thead>
+                              <tr>
+                                <th>Full Name</th>
+                                <th>Asset</th>
+                                <th>Check Out Date</th>
+                                <th>Notes</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for assign in assigns  %}
+                                <tr>
+                                  <td>{{assign.subuser}}</td>
+                                  <td>{{ prefix }}{{assign.asset}}</td>
+                                  <td>{{assign.checkoutDate}}</td>
+                                  <td>{{assign.notes}}</td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th>Full Name</th>
+                                <th>Asset</th>
+                                <th>Check Out Date</th>
+                                <th>Notes</th>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                          <div class="col-md-5"></div>
+                          <div class="col-md-2">
+                            <button class="btn btn-primary hidden-print" id="btn1" onclick="printReportAssigned('#section-to-print')"><i class="fa fa-print"></i> Print</button>
+                          </div>
+                          <div class="col-md-5"></div>
+                        </div>
+                        <!-- /.box-body -->
+                      </div>
+                      <br><br>
+                      <br>
+                      <div class="col-md-12 text-center"> 
+                          <button id="singlebutton" name="singlebutton" class="btn btn-info btn-lg hidden-print" data-toggle="collapse" data-target="#Company">Company Assets</button> 
+                      </div>
+                      <br><br><br><br>
+                      <div class="box collapse" id="Company">
+                        <div class="box-body">
+                          <table class="table table-bordered table-striped display" id="ReportAssets">
+                            <thead>
+                              <tr>
+                                <th>Model</th>
+                                <th>Asset Number</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {% for asset in assets  %}
+                                <tr>
+                                  <td>{{asset.model}}</a></td>
+                                  <td>{{prefix}}{{asset.assetNumber}}</td>
+                                  <td>{{asset.status}}</td>
+                                  <td>{{asset.notes}}</td>
+                                </tr>
+                              {% endfor %}
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <th>Model</th>
+                                <th>Asset Number</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                        <!-- /.box-body -->
+                      
+                      <br><br>
+                        <div class="row">
+                          <div class="col-md-5"></div>
+                          <div class="col-md-2">
+                            <button class="btn btn-primary hidden-print" id="btn1" onclick="printReportAssets()"><i class="fa fa-print"></i> Print</button>
+                          </div>
+                          <div class="col-md-5"></div>
+                        </div>
+                      </div>  
+                      <br><br><br>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+
+    {% include "../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+{% if user.stripe.is_active == false && user.stripe.is_trial == false %}
+<div class="row">
+        <div class="jumbotron">
+          <h2 class="display-3">Time's Up!</h2>
+          <p class="lead">Your tial is over! You need to enter your payment information in order to continue using our service. Don't worry about your data we will keep it for 1 month past
+          your trial end date. Please give up to 48 hours for your account to reactivate. This is a limitation set by out payment processor not us.</p>
+            <hr class="my-4">
+          <p></p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="/dashboard/billing" role="button">ADD NOW</a>
+          </p>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>        
+{% else %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">User</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+          <div class="box">
+            <div class="box-body">
+            {% if !foundSubuser %}
+               <h1>Invalid User ID!</h1>
+               <p>Go back to user list page <a href="/dashboard/user">here</a></p>
+            {% endif %}
+            {% if foundSubuser %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{ foundSubuser.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{ foundSubuser.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><a href="mailto:{{ foundSubuser.email }}" target="_top">{{ foundSubuser.email }}</a></td>
+                        </tr>
+                        <tr>
+                            <th>Employee Number</th>
+                            <td>{{ foundSubuser.employeeNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number</th>
+                            <td>{{ foundSubuser.phoneNumber }}</td>
+                        </tr>
+                        <tr>
+                            <th>Company</th>
+                            <td>{{ foundSubuser.company }}</td>
+                        </tr>
+                        <tr>
+                            <th>Department</th>
+                            <td>{{ foundSubuser.department }}</td>
+                        </tr>
+                        <tr>
+                            <th>Office</th>
+                            <td>{{ foundSubuser.office }}</td>
+                        </tr>
+                        <tr>
+                            <th>Notes</th>
+                            <td>{{ foundSubuser.notes }}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              
+            </div>
+            <!-- /.box-body -->
+          </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+{% endif %}
+    {% include "../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

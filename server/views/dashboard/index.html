@@ -1,0 +1,243 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+
+
+{% block content %}
+<!-- Content goes here! -->
+
+<style type="text/css">
+  .white-bg {background-color: white;}
+</style>
+<div class="container-fluid container-max">
+      <div><br><br></div>
+<div class="white-bg"></div>
+    <!-- Small boxes (Stat box) -->
+      <div class="row tour-step tour-step-two">
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{ assetCount }}</h3>
+              <p>Assets tracked</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-barcode"></i>
+            </div>
+            <a href="/dashboard/it/asset" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div> <!-- Assets tracked header -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>{{ ConsumableCount }}</h3>
+
+              <p>Expendable</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-fire" aria-hidden="true"></i>
+            </div>
+            <a href="/dashboard/it/expendable" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div> <!-- Bounce rate header-->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>{{ subUserCount }}</h3>
+
+              <p>Users Avaliable</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div>
+            <a href="/dashboard/user" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div> <!-- User registrations header -->
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>{{ licenseCount }}</h3>
+
+              <p>Software Licenses</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-disc"></i>
+            </div>
+            <a href="/dashboard/it/license" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div> <!-- Unique visitors header -->
+        <!-- ./col -->
+      </div> <!-- Header -->
+      {% if user.profile.name == "Company Name" %}
+      <div class="container">
+        <div class="row">
+          <div class="callout callout-info">
+            <h4 class="text-center">Yikes! No profile yet!</h4>
+            <p class="text-center">We've noticed you have not filled out your profile yet, we encourage you to so that your experience is more personalized.</p>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <br>
+      <div class="col-md-12 text-center"> 
+          <button id="singlebutton" name="singlebutton" class="btn btn-info btn-lg" data-toggle="collapse" data-target="#Assigned">Assigned Assets</button> 
+      </div>
+      <br><br>
+      <hr>
+      <br>
+      <div class="box collapse" id="Assigned">
+        <div class="box-body">
+          <table class="tour-step tour-step-one table table-bordered table-striped display">
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Asset</th>
+                <th>Check Out Date</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for assign in assigns  %}
+                <tr>
+                  <td><a href="/dashboard/user/{{assign.subuserID}}">{{assign.subuser}}</a></td>
+                  <td><a href="/dashboard/it/asset/{{assign.assetID}}">{{ prefix }}{{assign.asset}}</a></td>
+                  <td>{{assign.checkoutDate}}</td>
+                  <td>{{assign.notes}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Full Name</th>
+                <th>Asset</th>
+                <th>Check Out Date</th>
+                <th>Notes</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <br>
+      <div class="col-md-12 text-center"> 
+          <button id="singlebutton" name="singlebutton" class="btn btn-info btn-lg" data-toggle="collapse" data-target="#Company">Company Assets</button> 
+      </div>
+      <br><br>
+      <hr>
+      <br>
+      <div class="box collapse" id="Company">
+        <div class="box-body">
+          <table class="table table-bordered table-striped display">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Asset Number</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for asset in assets  %}
+                <tr>
+                  <td>{{asset.model}}</a></td>
+                  <td><a href="/dashboard/it/asset/{{asset.id}}">{{ prefix }}{{asset.assetNumber}}</a></td>
+                  <td>{{asset.status}}</td>
+                  <td>{{asset.notes}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Model</th>
+                <th>Asset Number</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Totals Chart</h3>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="chart" id="sales-chart" style="height: 300px; position: relative;"></div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+        <A NAME="featuresRequest"></a>
+        <div class="col-md-6">
+          <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">What would you like to see here?</h3>
+            </div>
+            <div class="box-body chart-responsive">
+              <div class="what" id="what" style="height: 300px; position: relative;">
+                <p>
+                  We are always wanting to know what you would like to see added in. Use our form below to let us know what you would 
+                  like to see included in this dashboard, and to make it more useful for your needs. Then watch out for that sweet feature
+                  you want to come your way. We plan to make this customizable and specific to your needs which means you can have your 
+                  cake and eat it too.
+                </p>
+                <form role="form-inline"action="/dashboard/feedback" method="POST">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="notes">Feature Request</label>
+                      <textarea class="form-control" rows="3" id="feature" name="feature" placeholder="Feature request.."></textarea>
+                    </div><!-- Feature -->
+                    <div class="box-footer">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+      </div>
+ </div>
+
+<script>
+$(document).ready(function() {
+    $('table.display').DataTable();
+} );
+
+
+  $(function () {
+    "use strict";
+    var assetCount = '{{ assetCount }}';
+    var licenseCount = '{{ licenseCount }}';
+    var subUserCount = '{{ subUserCount }}';
+    var ConsumableCount = '{{ ConsumableCount }}';
+
+    //DONUT CHART
+    var donut = new Morris.Donut({
+      element: 'sales-chart',
+      resize: true,
+      colors: ["#3c8dbc", "#f56954", "#00a65a", "#4aff02"],
+      data: [
+        {label: "Total Assets", value: assetCount},
+        {label: "Total Users", value: subUserCount},
+        {label: "Software Licenses", value: licenseCount},
+        {label: "Expendables", value: ConsumableCount}
+      ],
+      hideHover: 'auto'
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Create Expendable</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      <div class="col-md-6 col-md-offset-2">
+                      <form role="form-inline"action="/dashboard/it/expendable/new" method="POST">
+                        <div class="box-body">
+                            <div class="form-group">
+                              <label for="name" class="control-label">Product Name</label>
+                              <input type="text" class="form-control" id="name" name="name" placeholder="Product Name">
+                            </div><!-- Name -->
+                            <div class="form-group" id="manufacturer">
+                                <label for="manufacturer"  class="control-label">Manufacturer</label>
+                                <select class="form-control selectpicker" title="Manufacturer" name="manufacturer" data-live-search="true">
+                                  {%  for allManufacturer in allManufacturers  %}
+                                    <option value="{{allManufacturer.manufacturer}}">{{allManufacturer.manufacturer}}</option>
+                                  {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group" id="category">
+                                <label for="category"  class="control-label">Category</label>
+                                <select class="form-control selectpicker" title="Category" name="category" data-live-search="true">
+                                  <option value="Printer Ink">Printer Ink</option>
+                                  <option value="Printer Pape">Printer Paper</option>
+                                  <option value="Office Supplies">Office Supplies</option>
+                                  <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="cost" class="control-label">Cost</label>
+                              <input type="number" class="form-control" id="cost" name="cost" placeholder="Cost in USD">
+                            </div><!-- Cost -->
+                            <div class="form-group">
+                              <label for="bought" class="control-label">Date Bought</label>
+                              <input placeholder="Date Bought" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="bought" name="bought">
+                            </div><!-- Date Bought -->
+                            <div class="form-group">
+                              <label for="ponumber" class="control-label">PO Number</label>
+                              <input type="number" class="form-control" id="ponumber" name="ponumber" placeholder="PO Number">
+                            </div><!-- PO Number -->
+                            <div class="form-group">
+                              <label for="quantity" class="control-label">Quantity</label>
+                              <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Quantity">
+                            </div><!-- Quantity -->
+                            <div class="form-group">
+                              <label for="lowerLimit" class="control-label">Lower Quantity Limit</label>
+                              <input type="number" class="form-control" id="lowerLimit" name="lowerLimit" placeholder="Lower Quantity Limit">
+                            </div><!-- Lower Quantity Limit -->
+                            <div class="form-group">
+                              <label for="notes">Notes</label>
+                              <textarea class="form-control" rows="3" id="notes" name="notes" placeholder="Notes.."></textarea>
+                              </div><!-- Notes -->
+                        </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+  </div>
+</div>
+
+{% endblock %}

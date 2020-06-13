@@ -1,0 +1,101 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Asset</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+          <div class="box">
+            <div class="box-body">
+              {% if !foundLicense %}
+               <h1>Invalid Asset ID!</h1>
+               <p>Go back to asset list page <a href="/dashboard/it/license">here</a></p>
+              {% endif %}
+              {% if foundLicense %}
+              <div class="container">
+                <div class="col-md-6">
+                  <table class="table table-bordered table-striped col-md-6">
+                    <thead>
+                      <tr>
+                        <th>Field Name</th>
+                        <td>Field Value</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Name</th>
+                        <td>{{foundLicense.name}}</td>
+                      </tr>
+                      <tr>
+                        <th>Product Key</th>
+                        <td>{{foundLicense.productKey}}</td>
+                      </tr>
+                      <tr>
+                        <th>Creator</th>
+                        <td>{{foundLicense.creator}}</td>
+                      </tr>
+                      <tr>
+                        <th>License to Person</th>
+                        <td>{{foundLicense.licensedtoPerson}}</td>
+                      </tr>
+                      <tr>
+                        <th>License to Email</th>
+                        <td>{{foundLicense.licensedtoEmail}}</td>
+                      </tr>
+                      <tr>
+                        <th>Cost</th>
+                        <td>{{foundLicense.cost}}</td>
+                      </tr>
+                      <tr>
+                        <th>bought</th>
+                        <td>{{foundLicense.bought}}</td>
+                      </tr>
+                      <tr>
+                        <th>License Expiration Date</th>
+                        <td>{{foundLicense.expiration}}</td>
+                      </tr>
+                      <tr>
+                        <th>PO Number</th>
+                        <td>{{foundLicense.ponumber}}</td>
+                      </tr>
+                      <tr>
+                        <th>Notes</th>
+                        <td>{{foundLicense.notes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              {% endif %}
+              
+            </div>
+            <!-- /.box-body -->
+          </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}

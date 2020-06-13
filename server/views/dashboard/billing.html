@@ -1,0 +1,113 @@
+{% extends '../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<style type="text/css">
+@media screen and (min-width: 768px) {
+    .white-bg {
+    margin-left: 225px; 
+  }
+}
+.white-bg {
+    background-color: white;
+  }
+</style>
+<div class="white-bg">
+  <div class="container-fluid container-max">
+    <div class="page-header">
+      <h1>Billing</h1>
+    </div>
+    {% include "../partials/flash.html" %}
+<div class="page-header">
+      <h3>Subscription</h3>
+    </div>
+    <form  action="/user/plan" method="POST" class="form-horizontal">
+      <div class="form-group">
+        <label for="name" class="col-sm-3 control-label">Current Plan</label>
+        <div class="form-group">
+        <div class="col-sm-4">
+          <p class="form-control-static moveright"><strong>{{plans[user.stripe.plan].name}}</strong> - ${{plans[user.stripe.plan].price}}</p>
+          <hr>
+        </div>
+      </div>
+        <label for="plan" class="col-sm-3 control-label">Plan Select</label>
+        <div class="col-sm-4">
+            <div class="form-group" id="subuser">
+              <select class="form-control selectpicker" name="plan">
+                <option value="silver" {% if plans[user.stripe.plan].name == 'Silver' %} selected {% endif %} >Silver - Free</option>
+                <option value="gold" {% if plans[user.stripe.plan].name == 'Gold' %} selected {% endif %} >Gold - $14.99/ Month</option>
+                <option value="goldyear" {% if plans[user.stripe.plan].name == 'Gold Annually' %} selected {% endif %} >Gold - $134.99/ Year</option>
+                <option value="platinum" {% if plans[user.stripe.plan].name == 'Platinum' %} selected {% endif %} >Platinum - $24.99/ Month</option>
+                <option value="platinumyear" {% if plans[user.stripe.plan].name == 'Platinum Annually' %} selected {% endif %} >Platinum - $224.99/ Year</option>
+              </select>
+            </div><!-- Plan Select -->
+        </div>
+      </div>
+      {% if user.profile.isUsedCoupon != 'true' %}
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Coupon</label>
+        <div class="col-sm-4">
+          <input id="coupon" type="text" class="form-control" name="coupon">
+        </div>
+      </div>
+      {% endif %}
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button type="submit" class="btn btn-primary"><span class="ion-edit"></span> Update Plan</button>
+        </div>
+      </div>
+    </form>
+    
+    <div class="page-header">
+      <h3>Payment Details</h3>
+    </div>
+    <form role="form" id="cardForm" action="/user/billing" method="POST" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Card Number</label>
+        <div class="col-sm-4">
+          <input id="card-num" type="text" class="form-control readonlywhite" placeholder="XXXX XXXX XXXX {{user.stripe.last4}}" name="card" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-6">
+          <div id="cardFormError" class="alert alert-danger hidden" role="alert">
+            <p></p>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+    <br>
+    <div class="col-sm-4 col-sm-offset-3">
+      <form action="/user/billing" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{key}}"
+          data-amount="cd"
+          data-name="Phantom AM"
+          data-description="Track everything to know more"
+          data-image="../../../favicon.ico"
+          data-locale="auto"
+          data-currency="usd"
+          data-label="Update Card"
+          data-panel-label="Update Card"
+          data-zip-code="true"
+          data-allow-remember-me="false"
+          data-email="{{user.email}}"
+          > Update Card
+        </script>
+      </form>
+    </div>
+    <br>
+  <div class="page-header">
+      <h3></h3>
+    </div>
+</div>
+<div><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+  
+</div>
+
+{% endblock %}

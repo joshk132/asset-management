@@ -1,0 +1,61 @@
+{% extends '../../layouts/appDashboard.html' %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-max">
+      <div><br><br></div>
+      
+        <div class="box box-warning box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Security</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="row">
+                <div class="col-md-3 col-sm-8">
+                    <!-- Content here --> 
+                    <div class="container">
+                      
+                        <div class="page-header">
+                          <h3>Password</h3>
+                        </div>
+                        <form action="/user/password" method="POST" class="form-horizontal">
+                          <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">New Password</label>
+                            <div class="col-sm-4">
+                              <input type="password" name="password" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="confirm" class="col-sm-3 control-label">Confirm Password</label>
+                            <div class="col-sm-4">
+                              <input type="password" name="confirm" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-4">
+                              <button type="submit" class="btn btn-primary"><span class="ion-lock-combination"></span> Update Password</button>
+                            </div>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+             <!--/.box-body -->
+        </div>  
+      
+      
+
+    {% include "../../partials/flash.html" %}
+    
+      <div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+  </div>
+</div>
+
+{% endblock %}
